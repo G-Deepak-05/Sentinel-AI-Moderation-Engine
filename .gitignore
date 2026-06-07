@@ -1,0 +1,20 @@
+# Secrets
+.env
+
+# MacOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Java
+target/
+*.class
