@@ -27,6 +27,9 @@ class ModerationModel:
         else:
             action = "BLOCK"
             
+        elapsed_ms = (time.time() - start_time) * 1000
+        print(f"[Model] Inference completed in {elapsed_ms:.2f}ms", flush=True)
+
         return {
             "toxicityScore": round(toxicity, 3),
             "severeInsultScore": round(severe_insult, 3),

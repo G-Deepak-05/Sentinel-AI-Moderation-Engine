@@ -43,13 +43,13 @@ async def consume_and_process():
             tracking_id = payload.get("trackingId")
             text = payload.get("payload", "")
             
-            print(f"Received request {tracking_id}")
+            print(f"[KafkaService] Received request {tracking_id}", flush=True)
             
             result = model.evaluate(text)
             result["trackingId"] = tracking_id
             
             await producer.send_and_wait(RESULT_TOPIC, result)
-            print(f"Published result for {tracking_id} with action {result['action']}")
+            print(f"[KafkaService] Published result for {tracking_id} with action {result['action']}", flush=True)
     finally:
         await consumer.stop()
         await producer.stop()
