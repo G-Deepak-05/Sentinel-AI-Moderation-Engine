@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { Pool } from "pg";
 
 const pool = new Pool({
-  user: "sentinel_user",
-  password: "sentinel_password",
+  user: process.env.DB_USER || "sentinel_user",
+  password: process.env.DB_PASSWORD || "sentinel_password",
   host: process.env.DB_HOST || "localhost",
   port: 5432,
   database: "sentinel_db",
